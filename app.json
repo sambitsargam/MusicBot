@@ -1,44 +1,87 @@
 {
-    "name": "MUSICBot",
-    "description": "Just  Telegram MUSICBot, to stream songs in VC",
-    "keywords": [
-        "telegram",
-        "vc bot"
-    ],
-    "repository": "https://github.com/sambitsargam/MusicBot/",
-    "success_url": "https://t.me/Gundymusic_bot",
-    "stack": "container",
-    "env": {
-        "API_ID": {
-            "description": "Get this value from my.telegram.org!l",
-            "value": "",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "Get this value from my.telegram.org!",
-            "value": "",
-            "required": true
-        },
-        "SESSION": {
-            "description": "A pyrogram session, get this value by running python3 sessiongen.py locally.",
-            "value": "",
-            "required": true
-        },
-        "PREFIX": {
-            "description": "Userbot Prefix to run the commands. Add your own or keep as default (!)",
-            "value": "!",
-            "required": false
-        },
-        "SUDOS": {
-            "description": "User ID of users who can use commands, split by space.",
-            "value": "",
-            "required": true
-        }
+  "name": "Musicbot",
+  "logo": "https://telegra.ph/file/fd294693240383d0a6af6.jpg",
+  "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
+  "keywords": ["music", "voicechat", "telegram"],
+  "repository": "https://github.com/sambitsargam/MusicBot/",
+  "stack": "container",
+  "buildpacks": [
+   {
+     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+   }   
+  ],        
+  "env": {
+    "SESSION_NAME": {
+      "description": "Pyrogram session string",
+      "required": true
     },
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "free"
-        }
+    "BOT_TOKEN": {
+      "description": "A bot token from @BotFather",
+      "required": true
+    },
+    "BOT_USERNAME": {
+      "description": "Your bot's username without @",
+      "required": true
+    },
+    "BOT_NAME": {
+      "description": "Your MusicPlayer Bot Name.",
+      "required": true,
+      "value": ""
+    },
+    "SUPPORT_GROUP": {
+      "description": "Your MusicPlayer support group without @ [Leave this if you don't have one]",
+      "required": false,
+      "value": "@shakti0675"
+    },
+    "PROJECT_NAME": {
+      "description": "Your MusicPlayer project Name.Rename with your own Name",
+      "required": false,
+      "value": "VoiceChat_Song_bot"
+    },
+    "ASSISTANT_NAME": {
+      "description": "Your MusicPlayer's assistant Username without @.",
+      "required": true
+    },
+    "ARQ_API_KEY": {
+      "description": "Get from @ARQRobot.",
+      "required": false
+    },    
+    "BG_IMAGE": {
+      "description": "BG image of bot (Use transparent one) [IGNORE].",
+      "required": false,
+      "value": "https://te.legra.ph/file/43c8d0262dc019b2233af.jpg"
+    },     
+    "UPDATES_CHANNEL": {
+      "description": "Updates Channel without @ [Leave this if you don't have one].",
+      "required": false,
+      "value": ""
+    },    
+    "API_ID": {
+      "description": "App ID from my.telegram.org/apps",
+      "required": true
+    },
+    "PMPERMIT": {
+      "description": "Change to turn off",
+      "required": false,
+      "value": "ENABLE"
+    },
+    "START_IMG": {
+      "description": "Image for Bot PM Start Message.(telegraph)",
+      "required": false,
+      "value": "https://telegra.ph/file/fd294693240383d0a6af6.jpg"
+    },   
+    "API_HASH": {
+      "description": "App hash from my.telegram.org/apps",
+      "required": true
+    },
+    "SUDO_USERS": {
+      "description": "List of user IDs counted as admin everywhere (separated by space).",
+      "required": true
+    },
+    "DURATION_LIMIT": {
+      "description": "Max audio duration limit for downloads (minutes).",
+      "required": true,
+      "value": "10"
     }
+  }
 }
